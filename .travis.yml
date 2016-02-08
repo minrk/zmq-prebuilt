@@ -27,8 +27,7 @@ before_install:
  - nvm use $NODE_VERSION
  - node --version
  - npm --version
- - export CXX=g++-4.8
- - export CC=gcc-4.8
+ - test "$(uname)" = "Darwin"  || export CXX=g++-4.8 CC=gcc-4.8
  - mkdir ldlocal
  - export LDHACK=`pwd`/ldlocal
  # - export LDFLAGS=-L$LDHACK/lib
