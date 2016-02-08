@@ -60,6 +60,7 @@
         ['OS=="linux"', {
           'cflags': [
             '<!(pkg-config libzmq --cflags 2>/dev/null || echo "")',
+            '-fPIC',
           ],
         }]
       ]
