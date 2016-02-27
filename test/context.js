@@ -2,7 +2,12 @@ var zmq = require('..')
   , should = require('should')
   , semver = require('semver')
 
-describe('context', function() {
+describe('Context', function() {
+
+  it("shouldn't die if we call it without new", function() {
+    // 3.2 and above.
+    zmq.Context();
+  });
 
   it('should support setting max io threads', function(done) {
     // 3.2 and above.

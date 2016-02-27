@@ -222,7 +222,10 @@ namespace zmq {
   }
 
   NAN_METHOD(Context::New) {
-    assert(info.IsConstructCall());
+    if (!info.IsConstructCall()) {
+      Nan::ThrowError("Don't forget to add 'new'");
+      return;
+    }
     int io_threads = 1;
     if (info.Length() == 1) {
       if (!info[0]->IsNumber()) {
@@ -336,7 +339,10 @@ namespace zmq {
   }
 
   NAN_METHOD(Socket::New) {
-    assert(info.IsConstructCall());
+    if (!info.IsConstructCall()) {
+      Nan::ThrowError("Don't forget to add 'new'");
+      return;
+    }
 
     if (info.Length() != 2) {
       return Nan::ThrowError("Must pass a context and a type to constructor");
