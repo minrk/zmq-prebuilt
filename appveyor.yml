@@ -9,6 +9,7 @@ environment:
 
 install:
   - ps: Install-Product node $env:nodejs_version #$env:platform
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - npm install
 
 test_script:
